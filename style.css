@@ -11,7 +11,7 @@ body {
     margin: 0;
     background-image: linear-gradient(to bottom right, #1E2853, #482558);
 }
-.container {
+.container, .container2 {
     position: relative;
     width: 350px;
     height: 500px;
@@ -25,7 +25,15 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.container:hover .background {
+.background2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container:hover .background, .container2:hover .background2 {
     transform: perspective(20px) rotateX(2deg) translateY(-50px);
 }
 .bird {
@@ -39,6 +47,17 @@ body {
     transition: 1s;
     bottom: 20%;
 }
+.bird2 {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: flying 0.1s linear infinite;
+    animation-play-state: paused;
+    transition: 1s;
+    bottom: 20%;
+}
 
 @keyframes fly {
     from {
@@ -48,7 +67,17 @@ body {
     }
     
 }
-.container:hover .bird {
+@keyframes flying {
+    from {
+        background-image: url('./img/img11.png');
+    } to {
+        background-image: url('./img/img12.png');
+    }
+    
+}
+
+.container:hover .bird, .container2:hover .bird2 {
     animation-play-state: running;
     transform: translateX(-50px) translateY(-150px);
 }
+
